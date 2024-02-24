@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> unknow User Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        h3 {
+            text-align: center;
+            color: brown;
+        }
+        .card {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            
+        }
+        .image-item {
+            
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .image-item img {
+            
+            width: 100%;
+            height: 300px;
+            display: block;
+        }
+    
+        .name-profession {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(46, 162, 166, 0.8);
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h3>UNKNOW USER DATA</h3>
+    <div class="card" id="card"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = [
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },{ "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+                { "image": "https://i1.wp.com/thispix.com/wp-content/uploads/2015/06/Edit-9898-1.jpg", "name": "unknow", "profession": "profession" },
+            ];
+
+            const card = document.getElementById("card");
+
+            images.forEach(Data => {
+                const imageUrl = Data.image;
+                const name = Data.name;
+                const profession = Data.profession;
+                const imgCard = document.createElement("div");
+                imgCard.classList.add("image-item");
+
+                const imageElement = document.createElement("img");
+                imageElement.src = imageUrl;
+                imageElement.alt = "unknow user";
+
+                const captionElement = document.createElement("div");
+                captionElement.classList.add("name-profession");
+                captionElement.textContent = `${name}  ${profession}`;
+
+                imgCard.appendChild(imageElement);
+                imgCard.appendChild(captionElement);
+                card.appendChild(imgCard);
+            });
+        });
+    </script>
+</body>
+</html>
